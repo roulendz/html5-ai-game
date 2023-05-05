@@ -168,9 +168,10 @@ window.addEventListener("keydown", function(e) {
         case 'ArrowUp': // Up arrow key
             // Make the player jump by setting its y velocity to a negative value only if it is on the ground
             if (player.y + player.height === canvas.height) {
-              // The player's bottom edge is equal to the canvas height
-              player.vy = -10; // Set the y velocity to -10
+            // The player's bottom edge is equal to the canvas height
+            player.vy = -10; // Set the y velocity to -10
             }
             break;
-    }
+        }
+
 });
