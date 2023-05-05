@@ -48,12 +48,12 @@ function render() {
 
 function update() {
   // Update the player's position and velocity
-  player.x += player.vx; // Add the x velocity to the x position
-  player.y += player.vy; // Add the y velocity to the y position
-  player.vy += GRAVITY; // Add the gravity force to the y velocity
-  player.vx *= FRICTION; // Multiply the x velocity by the friction coefficient
+    player.x += player.vx; // Add the x velocity to the x position
+    player.y += player.vy; // Add the y velocity to the y position
+    player.vy += GRAVITY; // Add the gravity force to the y velocity
+    player.vx *= FRICTION; // Multiply the x velocity by the friction coefficient
 
-  // Limit the maximum y velocity
+    // Limit the maximum y velocity
     if (player.vy > 20) {
     // The player's y velocity is greater than 20
     player.vy = 20; // Set the y velocity to 20
@@ -62,27 +62,28 @@ function update() {
     // The player's y velocity is less than -20
     player.vy = -20; // Set the y velocity to -20
     }
-  // Check if the player hits the canvas boundaries and bounce back
-  if (player.x < 0) {
+
+    // Check if the player hits the canvas boundaries and bounce back
+    if (player.x < 0) {
     // The player hits the left edge
     player.x = 0; // Set the x position to 0
     player.vx = -player.vx; // Reverse the x velocity
-  }
-  if (player.x + player.width > canvas.width) {
+    }
+    if (player.x + player.width > canvas.width) {
     // The player hits the right edge
     player.x = canvas.width - player.width; // Set the x position to the canvas width minus the player width
     player.vx = -player.vx; // Reverse the x velocity
-  }
-  if (player.y < 0) {
+    }
+    if (player.y < 0) {
     // The player hits the top edge
-    player.y = 0; // Set the y position to 0
-    player.vy = -player.vy; // Reverse the y velocity
-  }
-  if (player.y + player.height > canvas.height) {
+    player.y = canvas.height - player.height; // Set the y position to **the canvas height minus** **the** **player height**
+    // Do not reverse** **the** **y** **velocity**
+    }
+    if (player.y + player.height > canvas.height) {
     // The player hits the bottom edge
-    player.y = canvas.height - player.height; // Set the y position to the canvas height minus the player height
-    player.vy = -player.vy; // Reverse the y velocity
-  }
+    // Do not change** **the** **y** **position**
+    // Do not reverse** **the** **y** **velocity**
+    }
 
   // Update the enemies' position and velocity
   for (var i = 0; i < enemies.length; i++) {
